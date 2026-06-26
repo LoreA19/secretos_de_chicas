@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Episodios | Secretos de Chicas</title>
+    <style>
+        /* Estilos Generales */
+        body { font-family: 'Poppins', Arial, sans-serif; margin: 0; background-color: #fff0f5; color: #333; }
+
+        /* CABECERA PREMIUM */
+        header { 
+            background-image: url('img/banner-header.png'); background-size: cover; 
+            background-position: center; padding: 0 40px; display: flex; 
+            justify-content: space-between; align-items: center; height: 130px; 
+            box-shadow: 0 4px 15px rgba(219, 112, 147, 0.1);
+        }
+        .logo-img { width: 95px; height: 95px; border-radius: 50%; border: 3px solid #ff1493; }
+        nav { display: flex; gap: 15px; }
+        nav a { text-decoration: none; color: #333; font-weight: 700; padding: 8px 16px; border-radius: 20px; background: rgba(255,255,255,0.8); }
+
+        /* REDES SOCIALES (CÍRCULOS) */
+        .redes-header { display: flex; gap: 10px; }
+        .red-icono { width: 40px; height: 40px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: 0.3s; }
+        .red-icono:hover { transform: scale(1.1); background: #ff69b4; color: white; }
+
+        /* CONTENIDO */
+        .container { padding: 50px 20px; max-width: 1100px; margin: auto; }
+        .grid-episodios { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .episodio-card { background: white; border-radius: 20px; padding: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .badge-tema { background: #ff1493; color: white; padding: 5px 12px; border-radius: 20px; font-size: 11px; }
+        .btn-escuchar { display: block; margin-top: 20px; padding: 12px; background: #ff69b4; color: white; text-align: center; text-decoration: none; border-radius: 20px; font-weight: bold; }
+        
+        /* WHATSAPP */
+        .whatsapp-btn { position: fixed; bottom: 20px; right: 20px; background-color: #25d366; color: white; padding: 15px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; }
+        footer { background: #333; color: white; text-align: center; padding: 20px; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html"><img src="img/logo.png" class="logo-img"></a>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="episodios.html">Episodios</a>
+            <a href="tienda.html">Tienda</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+        <div class="redes-header">
+            <a href="https://www.instagram.com/secretosdechicas.net26?igsh=bzJ4bDBxYTlyeTNw" class="red-icono">📸</a>
+            <a href="https://youtube.com/@user-ok4yf8ur9d?si=qnB3d-RzNokO_IxN" class="red-icono">📽️</a>
+            <a href="https://www.tiktok.com/@secretos.de.chica26?_r=1&_t=ZS-97IkVhAo3yG" class="red-icono">🎞️</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 style="text-align: center; color: #ff1493;">✨ Archivo Completo de Secretos</h1>
+        
+        <div class="grid-episodios">
+            <div class="episodio-card"><span class="badge-tema">RELACIONES</span><h3>Ep. 12: Mandando a volar cucarachos</h3><p>Aprende a priorizar tu paz mental hoy mismo.</p><a href="#" class="btn-escuchar">Ver en YouTube 📺</a></div>
+            <div class="episodio-card"><span class="badge-tema">EMPRENDIMIENTO</span><h3>Ep. 11: Facturando juntas</h3><p>Lanza tu marca digital sin morir en el intento.</p><a href="#" class="btn-escuchar">Ver en YouTube 📺</a></div>
+            <div class="episodio-card"><span class="badge-tema">SALUD MENTAL</span><h3>Ep. 10: La trampa de compararse</h3><p>Desarmamos el mito de la perfección en redes.</p><a href="#" class="btn-escuchar">Ver en YouTube 📺</a></div>
+            <div class="episodio-card"><span class="badge-tema">RELACIONES</span><h3>Ep. 09: Amigos con derechos</h3><p>¿Realmente funcionan o son solo dramas?</p><a href="#" class="btn-escuchar">Ver en YouTube 📺</a></div>
+            <div class="episodio-card"><span class="badge-tema">PODCAST</span><h3>Ep. 08: Invitada especial</h3><p>Charlas profundas sobre la vida y el éxito.</p><a href="#" class="btn-escuchar">Ver en YouTube 📺</a></div>
+            <div class="episodio-card"><span class="badge-tema">EMPRENDIMIENTO</span><h3>Ep. 07: Tu marca personal</h3><p>Cómo brillar con luz propia en internet.</p><a href="#" class="btn-escuchar">Ver en YouTube 📺</a></div>
+        </div>
+    </div>
+
+    <a href="https://api.whatsapp.com/send?phone=573214169657" class="whatsapp-btn" target="_blank">💬 Sugerir un tema</a>
+
+    <footer>
+        <p>Secretos de Chicas Podcast | Hecho con ❤️ por Lore Acero y Carolina Guevara</p>
+    </footer>
+
+</body>
+</html>

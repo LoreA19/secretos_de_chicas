@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Secretos de Chicas</title>
+    <style>
+        /* Estilos Generales Unificados */
+        body { font-family: 'Poppins', Arial, sans-serif; margin: 0; background-color: #fff0f5; color: #333; }
+
+        /* CABECERA (Banner, Logo, Nav y Redes) */
+        header { 
+            background-image: url('img/banner-header.png'); background-size: cover; 
+            background-position: center; padding: 0 40px; display: flex; 
+            justify-content: space-between; align-items: center; height: 130px; 
+            box-shadow: 0 4px 15px rgba(219, 112, 147, 0.1);
+        }
+        .logo-img { width: 95px; height: 95px; border-radius: 50%; border: 3px solid #ff1493; }
+        nav { display: flex; gap: 15px; }
+        nav a { text-decoration: none; color: #333; font-weight: 700; padding: 8px 16px; border-radius: 20px; background: rgba(255,255,255,0.8); }
+
+        /* REDES SOCIALES (NUEVO) */
+        .redes-header { display: flex; gap: 10px; }
+        .red-icono { width: 40px; height: 40px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: 0.3s; }
+        .red-icono:hover { transform: scale(1.1); background: #ff69b4; color: white; }
+
+        /* CONTENIDO DEL FORMULARIO */
+        .container { padding: 40px 20px; max-width: 600px; margin: auto; }
+        .formulario-card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .formulario-card h2 { color: #ff1493; text-align: center; margin-top: 0; }
+        
+        .form-group { margin-bottom: 20px; display: flex; flex-direction: column; }
+        .form-control { padding: 12px; border: 2px solid #ffe4e1; border-radius: 12px; font-family: inherit; }
+        .form-control:focus { border-color: #ff69b4; outline: none; }
+        
+        .btn-enviar { 
+            background-color: #ff69b4; color: white; border: none; padding: 14px; 
+            width: 100%; border-radius: 25px; font-weight: bold; cursor: pointer; 
+            transition: 0.3s;
+        }
+        .btn-enviar:hover { background-color: #ff1493; transform: translateY(-2px); }
+
+        /* BOTÓN WHATSAPP FLOTANTE */
+        .whatsapp-btn { 
+            position: fixed; bottom: 20px; right: 20px; background-color: #25d366; 
+            color: white; padding: 15px 20px; border-radius: 50px; text-decoration: none; 
+            font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; 
+        }
+
+        footer { background-color: #333; color: white; text-align: center; padding: 20px; margin-top: 50px; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html"><img src="img/logo.png" class="logo-img"></a>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="episodios.html">Episodios</a>
+            <a href="tienda.html">Tienda</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+        <div class="redes-header">
+            <a href="https://www.instagram.com/secretosdechicas.net26?igsh=bzJ4bDBxYTlyeTNw" class="red-icono">📸</a>
+            <a href="https://youtube.com/@user-ok4yf8ur9d?si=qnB3d-RzNokO_IxN" class="red-icono">📽️</a>
+            <a href="https://www.tiktok.com/@secretos.de.chica26?_r=1&_t=ZS-97IkVhAo3yG" class="red-icono">🎞️</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="formulario-card">
+            <h2>Shh... Cuéntanos tu secreto 🤫</h2>
+            <form action="https://formspree.io/f/tu_id_aqui" method="POST">
+                <div class="form-group">
+                    <label>Tu Nombre o Alias:</label>
+                    <input type="text" name="nombre" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Tu Correo Electrónico:</label>
+                    <input type="email" name="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>¿De qué trata tu historia?</label>
+                    <select name="tema" class="form-control" required>
+                        <option value="Amor">💔 Amor y Relaciones</option>
+                        <option value="Emprendimiento">🚀 Emprendimiento</option>
+                        <option value="Salud">🧘‍♀️ Salud Mental</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Tu historia:</label>
+                    <textarea name="mensaje" class="form-control" style="min-height: 120px;" required></textarea>
+                </div>
+                <button type="submit" class="btn-enviar">Enviar relato por Correo ✉️</button>
+            </form>
+        </div>
+    </div>
+
+    <a href="https://api.whatsapp.com/send?phone=573214169657" class="whatsapp-btn" target="_blank">
+        💬 Mandar relato por WhatsApp
+    </a>
+
+    <footer>
+        <p>Secretos de Chicas Podcast | Hecho con ❤️ por Lore Acero y Carolina Guevara</p>
+    </footer>
+
+</body>
+</html>

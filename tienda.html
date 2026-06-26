@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda | Secretos de Chicas</title>
+    <style>
+        /* Estilos Unificados */
+        body { font-family: 'Poppins', Arial, sans-serif; margin: 0; background-color: #fff0f5; color: #333; }
+
+        /* HEADER PREMIUM */
+        header { 
+            background-image: url('img/banner-header.png'); background-size: cover; 
+            background-position: center; padding: 0 40px; display: flex; 
+            justify-content: space-between; align-items: center; height: 130px; 
+            box-shadow: 0 4px 15px rgba(219, 112, 147, 0.1);
+        }
+        .logo-img { width: 95px; height: 95px; border-radius: 50%; border: 3px solid #ff1493; }
+        nav { display: flex; gap: 15px; }
+        nav a { text-decoration: none; color: #333; font-weight: 700; padding: 8px 16px; border-radius: 20px; background: rgba(255,255,255,0.8); }
+
+        /* REDES SOCIALES HEADER */
+        .redes-header { display: flex; gap: 10px; }
+        .red-icono { width: 40px; height: 40px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: 0.3s; }
+        .red-icono:hover { transform: scale(1.1); background: #ff69b4; color: white; }
+
+        /* TIENDA Y CARRITO */
+        .container { padding: 40px 20px; max-width: 1200px; margin: auto; display: flex; gap: 30px; flex-wrap: wrap; }
+        .productos { flex: 3; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        .producto-card { background: white; padding: 20px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); text-align: center; }
+        .producto-card img { width: 100%; height: 220px; object-fit: cover; border-radius: 12px; margin-bottom: 15px; }
+        .btn-agregar { background-color: #ff69b4; color: white; border: none; padding: 12px; border-radius: 20px; cursor: pointer; font-weight: bold; width: 100%; transition: 0.2s; }
+        .btn-agregar:hover { background-color: #ff1493; }
+
+        .carrito-seccion { flex: 1; min-width: 300px; background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); height: fit-content; }
+        .item-carrito { display: flex; justify-content: space-between; border-bottom: 1px dashed #ffe4e1; padding: 8px 0; }
+        .btn-pagar { background-color: #25d366; color: white; border: none; padding: 15px; width: 100%; border-radius: 20px; font-weight: bold; cursor: pointer; margin-top: 20px; }
+
+        footer { text-align: center; padding: 30px; background: #333; color: white; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html"><img src="img/logo.png" class="logo-img"></a>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="episodios.html">Episodios</a>
+            <a href="tienda.html">Tienda</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+        <div class="redes-header">
+            <a href="https://www.instagram.com/secretosdechicas.net26?igsh=bzJ4bDBxYTlyeTNw" class="red-icono">📸</a>
+            <a href="https://youtube.com/@user-ok4yf8ur9d?si=qnB3d-RzNokO_IxN" class="red-icono">📽️</a>
+            <a href="https://www.tiktok.com/@secretos.de.chica26?_r=1&_t=ZS-97IkVhAo3yG" class="red-icono">🎞️</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="productos">
+            <div class="producto-card">
+                <img src="img/gorra.png" alt="Gorra">
+                <h3>Gorra "Podcaster Power"</h3>
+                <p>$45.000</p>
+                <button class="btn-agregar" onclick="agregarAlCarrito('Gorra Power', 45000)">Agregar al carrito</button>
+            </div>
+            <div class="producto-card">
+                <img src="img/camiseta.png" alt="Camiseta">
+                <h3>Camiseta "No fui yo"</h3>
+                <p>$65.000</p>
+                <button class="btn-agregar" onclick="agregarAlCarrito('Camiseta Oversize', 65000)">Agregar al carrito</button>
+            </div>
+            <div class="producto-card">
+                <img src="img/chaqueta.png" alt="Chaqueta">
+                <h3>Chaqueta "Secreto de Chicas"</h3>
+                <p>$120.000</p>
+                <button class="btn-agregar" onclick="agregarAlCarrito('Chaqueta Bomber', 120000)">Agregar al carrito</button>
+            </div>
+            <div class="producto-card">
+                <img src="img/libro.png" alt="Libro">
+                <h3>Libro: "Amor Propio"</h3>
+                <p>$50.000</p>
+                <button class="btn-agregar" onclick="agregarAlCarrito('Libro Amor Propio', 50000)">Agregar al carrito</button>
+            </div>
+        </section>
+
+        <aside class="carrito-seccion">
+            <h2>🛒 Tu Carrito</h2>
+            <div id="lista-carrito"></div>
+            <div style="margin-top: 20px; font-weight: bold; font-size: 1.2em;">Total: $<span id="total-precio">0</span></div>
+            <button class="btn-pagar" onclick="enviarPedidoWhatsApp()">Pedir por WhatsApp 💬</button>
+        </aside>
+    </div>
+
+    <script>
+        let carrito = [];
+        let total = 0;
+        function agregarAlCarrito(nombre, precio) {
+            carrito.push({ nombre, precio });
+            total += precio;
+            actualizarCarrito();
+        }
+        function actualizarCarrito() {
+            const lista = document.getElementById('lista-carrito');
+            lista.innerHTML = carrito.map(item => `
+                <div class="item-carrito">
+                    <span>${item.nombre}</span>
+                    <span>$${item.precio.toLocaleString()}</span>
+                </div>
+            `).join('');
+            document.getElementById('total-precio').innerText = total.toLocaleString();
+        }
+        function enviarPedidoWhatsApp() {
+            if (carrito.length === 0) return alert("El carrito está vacío");
+            let mensaje = "¡Hola! Quiero pedir: \n" + carrito.map(i => i.nombre).join(", ") + "\nTotal: $" + total.toLocaleString();
+            window.open(`https://api.whatsapp.com/send?phone=573214169657&text=${encodeURIComponent(mensaje)}`, '_blank');
+        }
+    </script>
+
+    
+    <footer>
+        <p>Secretos de Chicas Podcast | Hecho con ❤️ por Lore Acero y Carolina Guevara</p>
+    </footer>
+
+</body>
+</html>

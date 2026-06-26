@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secretos de Chicas - Inicio</title>
+    <style>
+        /* Estilos Generales */
+        body { font-family: 'Poppins', Arial, sans-serif; margin: 0; padding: 0; background-color: #fff0f5; color: #333; }
+
+        /* CABECERA */
+        header { 
+            background-image: url('img/banner-header.png'); background-size: cover; background-position: center;
+            padding: 0 40px; display: flex; justify-content: space-between; align-items: center; 
+            height: 130px; box-shadow: 0 4px 15px rgba(219, 112, 147, 0.1);
+        }
+        .logo-img { width: 95px; height: 95px; border-radius: 50%; border: 3px solid #ff1493; }
+        nav { display: flex; gap: 15px; }
+        nav a { text-decoration: none; color: #333; font-weight: 700; padding: 8px 16px; border-radius: 20px; background: rgba(255,255,255,0.8); }
+        
+        /* REDES SOCIALES (CÍRCULOS UNIFORMES) */
+        .redes-header { display: flex; align-items: center; gap: 10px; }
+        .red-icono { 
+            width: 40px; height: 40px; border-radius: 50%; background: white; 
+            display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-decoration: none; transition: 0.3s;
+        }
+        .red-icono:hover { transform: scale(1.1); background: #ff69b4; color: white; }
+
+        /* SECCIÓN VIDEO (ROSADO PASTEL) */
+        .seccion-video { 
+            text-align: center; margin: 40px auto; background: #ffe4e8; 
+            padding: 40px; border-radius: 20px; max-width: 800px;
+        }
+
+        /* SLIDER (AJUSTADO) */
+        .slider-container { width: 90%; max-width: 900px; position: relative; margin: 40px auto; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .slider { width: 100%; height: 400px; position: relative; }
+        .slide { position: absolute; width: 100%; height: 100%; opacity: 0; transition: 0.8s; background-size: cover; background-position: center; }
+        .slide.active { opacity: 1; }
+        .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 10; background: rgba(255,255,255,0.7); border: none; border-radius: 50%; width: 45px; height: 45px; cursor: pointer; }
+        .prev-btn { left: 20px; } .next-btn { right: 20px; }
+
+        footer { background-color: #333; color: white; text-align: center; padding: 20px; margin-top: 50px; }
+
+        /* HEADER Y BOTÓN WHATSAPP */
+        header { background-image: url('img/banner-header.png'); background-size: cover; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; height: 130px; }
+        .logo-img { width: 95px; height: 95px; border-radius: 50%; border: 3px solid #ff1493; }
+        .whatsapp-btn { position: fixed; bottom: 20px; right: 20px; background-color: #25d366; color: white; padding: 15px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html"><img src="img/logo.png" class="logo-img"></a>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="episodios.html">Episodios</a>
+            <a href="tienda.html">Tienda</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+        <div class="redes-header">
+            <a href="https://www.instagram.com/secretosdechicas.net26?igsh=bzJ4bDBxYTlyeTNw" class="red-icono">📸</a>
+            <a href="https://youtube.com/@user-ok4yf8ur9d?si=qnB3d-RzNokO_IxN" class="red-icono">📽️</a>
+            <a href="https://www.tiktok.com/@secretos.de.chica26?_r=1&_t=ZS-97IkVhAo3yG" class="red-icono">🎞️</a>
+        </div>
+    </header>
+
+    <div class="seccion-video">
+        <h2 style="color: #ff1493;">Episodio Destacado de la Semana ✨</h2>
+        <iframe width="100%" height="400" src="https://www.youtube.com/embed/eWTkHjfi20E" frameborder="0" allowfullscreen style="border-radius: 12px;"></iframe>
+    </div>
+
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide active" style="background-image: url('img/slider1.png');"></div>
+            <a href="episodios.html" class="slide" style="background-image: url('img/slider2.png');"></a>
+            <a href="contacto.html" class="slide" style="background-image: url('img/slider3.png');"></a>
+        </div>
+        <button class="slider-btn prev-btn">❮</button>
+        <button class="slider-btn next-btn">❯</button>
+    </div>
+
+    <a href="https://api.whatsapp.com/send?phone=573214169657" class="whatsapp-btn" target="_blank">💬 Escríbenos</a>
+
+    <footer>
+        <p>Secretos de Chicas Podcast | Hecho con ❤️ por Lore Acero y Carolina Guevara | Una comunidad más fuerte</p>
+    </footer>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let currentIndex = 0;
+        function showSlide(index) {
+            slides[currentIndex].classList.remove('active');
+            currentIndex = (index + slides.length) % slides.length;
+            slides[currentIndex].classList.add('active');
+        }
+        document.querySelector('.next-btn').addEventListener('click', () => showSlide(currentIndex + 1));
+        document.querySelector('.prev-btn').addEventListener('click', () => showSlide(currentIndex - 1));
+        setInterval(() => showSlide(currentIndex + 1), 5000);
+    </script>
+</body>
+</html>
